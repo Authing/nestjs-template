@@ -59,6 +59,8 @@ $ npm run test:cov
 - [ ] RabbitMQ
 - [ ] Task Scheduler
 - [ ] Plugin Middlewares
+- [ ] Dcokerfile & Docker Compose
+- [ ] CICD
 
 ## License
 The source code for the site is licensed under the MIT license.
