@@ -2,6 +2,9 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
+import { GraphQLModule } from '@nestjs/graphql';
+import * as path from 'path'
+import { DateFormatDirective } from './graphql/directives/formatDate';
 
 function getEnvFile() {
   switch (process.env.NODE_ENV) {
@@ -26,7 +29,22 @@ function getEnvFile() {
 
       // 设置为全局，这样其他 Module 就不需要再次引入
       isGlobal: true,
-    })
+    }),
+
+    GraphQLModule.forRoot({
+      cors: false,
+
+      // 加载 src 目录下所有 .graphql 后缀的文件
+      typePaths: [path.resolve(__dirname, '**', '*.graphql')],
+
+      // 格式化 @date 字符串
+      schemaDirectives: {
+        date: DateFormatDirective,
+      },
+
+      // 生产环境关闭 debug 选项
+      debug: process.env.NODE_ENV !== "prod"
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
