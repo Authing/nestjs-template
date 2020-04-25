@@ -3,6 +3,8 @@ Authing [NestJS](https://github.com/nestjs/nest) starter project template.
 - [Installation](#installation)
 - [Commands](#commands)
 - [Feature List](#feature-list)
+- [TODO](#todo)
+- [License](#license)
 
 ## Installation
 
@@ -50,3 +52,13 @@ $ npm run test:cov
 - `.env.test`
 - `.env.prod`
 
+## TODO
+
+- [ ] **Bulitin user module with [Authing](https://authing.cn)**
+- [ ] Exception Filters
+- [ ] RabbitMQ
+- [ ] Task Scheduler
+- [ ] Plugin Middlewares
+
+## License
+The source code for the site is licensed under the MIT license.
