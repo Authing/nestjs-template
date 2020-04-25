@@ -32,3 +32,8 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# Stage-Specific Configuration Files
+configs/.env.dev
+configs/.env.prod
+configs/.env.test
