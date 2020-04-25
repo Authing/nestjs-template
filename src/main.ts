@@ -1,8 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import * as helmet from 'helmet';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  // Helmet can help protect your app from some well-known web vulnerabilities by setting HTTP headers appropriately. 
+  // Docs: https://github.com/helmetjs/helmet#how-it-works
+  app.use(helmet());
 
   // Enable CORS
   // The available properties of configuration object are described here: 
