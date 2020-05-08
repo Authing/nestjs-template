@@ -56,11 +56,7 @@ require('dotenv').config({
     TypeOrmModule.forRoot({
       // @ts-ignore
       type: process.env.DATABASE_TYPE,
-      host: process.env.DATABASE_HOST,
-      port: parseInt(process.env.DATABASE_PORT),
-      username: process.env.DATABASE_USERNAME,
-      password: process.env.DATABASE_PASSWORD,
-      database: process.env.DATABASE_DBNAME,
+      url: process.env.DATABASE_URL,
       // 加载 src 目录下所有 .entity.ts/.entity.js 后缀的文件
       entities: [path.resolve(__dirname, '**', '*.entity{.ts,.js}')],
       synchronize: true,
