@@ -8,7 +8,7 @@
 		"prebuild": "rimraf dist",
 		"build": "npx gulp build",
 		"format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-		"start:dev": "NODE_ENV=development nest start --watch",
+		"start:dev": "npx gulp buildStaticFiles && NODE_ENV=development nest start --watch",
 		"start:test": "NODE_ENV=test nest start --watch",
 		"start:prod": "NODE_ENV=prod node dist/main",
 		"lint": "tslint -p tsconfig.json -c tslint.json",

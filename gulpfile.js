@@ -25,10 +25,14 @@ function copyEnvFile(cb) {
     path.resolve(__dirname, 'configs', '.env.dev'),
     path.resolve(__dirname, 'configs', '.env.test'),
     path.resolve(__dirname, 'configs', '.env.prod'),
-  ]).pipe(dest(path.resolve(__dirname, 'dist', 'configs')));
+  ], { allowEmpty: true }).pipe(dest(path.resolve(__dirname, 'dist', 'configs')));
 }
 
 exports.build = series(
   compireTypeScript,
   parallel(copyGraphql, copyEnvFile),
 );
+
+exports.buildStaticFiles = series(
+  parallel(copyGraphql, copyEnvFile)
+)
